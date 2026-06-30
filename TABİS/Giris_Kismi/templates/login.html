@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-login.css') }}">
+    <title>Giriş Yapınız</title>
+</head>
+<body>
+    <div class="login-box">
+        <div class="login-header">
+            <header>Giriş Yap</header>
+        </div>
+        <form action="/login" method="post">
+            <div class="input-box">
+                <input type="email" class="input-field" placeholder="E-posta adresi" name="email" autocomplete="off" required>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" placeholder="Şifre" name="password" autocomplete="off" required>
+            </div>
+            <div class="forgot">
+                <section>
+                    <input type="checkbox" id="check" name="remember">
+                    <label for="check">Beni Hatırla</label>
+                </section>
+                <section>
+                    <a href="#">Şifremi Unuttum</a>
+                </section>
+            </div>
+            <div class="input-submit">
+                <button type="submit" class="submit-btn">Giriş Yap</button>
+            </div>
+        </form>
+        <div class="sign-up-link">
+            <p>Hesabınız yok mu? <a href="{{ url_for('register') }}">Kaydol</a></p>
+        </div>
+    </div>
+</body>
+</html>

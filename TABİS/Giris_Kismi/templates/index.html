@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABİS</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .bg {
+            height: 100%;
+            background-image: url('../static/2.jpg'); /* Arka plan resminizin yolu */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .text-center {
+            text-align: center;
+            color: white;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .text-center h1 {
+            font-size: 8em;
+            font-weight: bold;
+            color: #d3d3d3; /* Açık gri */
+            margin-bottom: 50px;
+        }
+        .btn-custom {
+            background-color: #fff;
+            color: #333;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border: 2px solid #fff;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        .btn-custom:hover {
+            background-color: #333;
+            color: #fff;
+            border-color: #333;
+        }
+        .btn-custom-secondary {
+            background-color: transparent;
+            color: #fff;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border: 2px solid #fff;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        .btn-custom-secondary:hover {
+            background-color: #fff;
+            color: #333;
+        }
+        .nav {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .nav-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            margin-left: 8%;
+        }
+        .nav-left a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+        .nav-right a {
+            margin: 0 10px;
+            font-size: 1.5em;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <div class="bg-overlay"></div>
+        <div class="nav">
+            <div class="nav-left">
+                <a href="{{ url_for('about') }}">Hakkımızda</a>
+                <a href="{{ url_for('login') }}">Giriş Yap</a>
+                <a href="{{ url_for('register') }}">Kaydol</a>
+            </div>
+            <div class="nav-right">
+                <a href="{{ url_for('about') }}">?</a>
+                <a href="#" data-toggle="modal" data-target="#languageModal">🌐</a>
+                <a href="{{ url_for('login') }}">👤</a>
+            </div>
+        </div>
+        <div class="text-center">
+            <h1>TABİS</h1>
+            <div class="buttons">
+                <a href="{{ url_for('register') }}" class="btn btn-custom">Kaydol</a>
+                <a href="{{ url_for('login') }}" class="btn btn-custom-secondary">Giriş Yap</a>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="languageModal" tabindex="-1" aria-labelledby="languageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="languageModalLabel">Diller</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body language-modal">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6>North America</h6>
+                            <ul class="list-unstyled">
+                                <li><a onclick="en_hata()">United States (English)</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>Europe</h6>
+                            <ul class="list-unstyled">
+                                <li><a href="/">TÜRKİYE (TÜRKÇE)</a></li>
+                                <li><a onclick="fr_hata()">France (Français)</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>Asia Pacific</h6>
+                            <ul class="list-unstyled">
+                                <li><a onclick="ch_hata()">中国（中文）</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function ch_hata() {
+            alert("该语言仍在开发中！");
+        }
+        function fr_hata() {
+            alert("Le langage est encore en développement !");
+        }  
+        function en_hata() {
+            alert("Language is under development!");
+        }  
+    </script>
+</body>
+</html>

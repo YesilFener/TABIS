@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaydol</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-register.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="/register" method="POST">
+            <h1>Kaydolma Ekranı</h1>
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="text" name="name" placeholder="Ad" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="surname" placeholder="Soyad" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="email" name="email" placeholder="E-posta Adresi" required>
+                    <i class='bx bxs-envelope' ></i>
+                </div>
+                <div class="input-field">
+                    <input type="number" name="phone" placeholder="Telefon Numarası" required>
+                    <i class='bx bxs-phone' ></i>
+                </div>
+            </div>
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="password" name="password" placeholder="Şifre" required>
+                    <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <div class="input-field">
+                    <input type="password" name="password_repeat" placeholder="Şifre Tekrarı" required>
+                    <i class='bx bxs-lock-alt' ></i>
+                </div>
+            </div>
+            <label><input type="checkbox" required>Yukarıda verdiğim bilgilerin gerçek ve doğru olduğunu beyan ederim</label>
+            <button type="submit" class="btn">Kaydol</button>
+        </form>
+    </div>
+</body>
+</html>
