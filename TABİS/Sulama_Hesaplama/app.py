@@ -7,7 +7,7 @@ from collections import defaultdict
 app = Flask(__name__)
 CORS(app)
 
-API_KEY = "55333e6718949a9676bad5de9569c941"
+API_KEY = "YOUR_API_KEY"
 
 crop_data = {
     "buğday": {"daily_need": 5, "watering_interval": 24},
